@@ -1,3 +1,4 @@
+import { registerRoutes } from '@apps-mooc-backend/routes'
 import compress from 'compression'
 import errorHandler from 'errorhandler'
 import express, { Express, NextFunction, Request, Response } from 'express'
@@ -5,7 +6,6 @@ import Router from 'express-promise-router'
 import helmet from 'helmet'
 import * as http from 'http'
 import httpStatus from 'http-status'
-import { registerRoutes } from './routes'
 
 class Server {
   private readonly express: Express

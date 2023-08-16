@@ -13,7 +13,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,
-    "skipLibCheck": true,    
+    "skipLibCheck": true,
+    "paths": {
+      "@apps-mooc-backend/*": ["./src/apps/mooc/backend/*"],
+    } 
   },
   "include": [
     "src/**/**.ts",

@@ -1,5 +1,5 @@
+import StatusGetController from '@apps-mooc-backend/controllers/StatusGetController'
 import { Request, Response, Router } from 'express'
-import StatusGetController from '../controllers/StatusGetController'
 import { container } from '../dependency-injection'
 
 const register = (router: Router): void => {

@@ -1,5 +1,5 @@
+import { Server } from '@apps-mooc-backend/server'
 import 'dotenv/config'
-import { Server } from './server'
 
 class MoocBackendApp {
   server?: Server
@@ -16,7 +16,7 @@ class MoocBackendApp {
   }
 
   async stop(): Promise<void> {
-    return await this.server?.stop()
+    await this.server?.stop()
   }
 }
 

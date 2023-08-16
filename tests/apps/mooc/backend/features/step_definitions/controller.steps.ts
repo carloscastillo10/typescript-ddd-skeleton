@@ -1,7 +1,7 @@
+import { MoocBackendApp } from '@apps-mooc-backend/MoocBackendApp'
 import { AfterAll, BeforeAll, Then, When } from '@cucumber/cucumber'
 import assert from 'assert'
 import request, { Response, Test } from 'supertest'
-import { MoocBackendApp } from '../../../../../../src/apps/mooc/backend/MoocBackendApp'
 
 let _request: Test
 let application: MoocBackendApp

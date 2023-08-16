@@ -1,4 +1,4 @@
-import { MoocBackendApp } from './MoocBackendApp'
+import { MoocBackendApp } from '@apps-mooc-backend/MoocBackendApp'
 
 new MoocBackendApp().start().catch(error => {
   console.log('Error starting backend app', error)
