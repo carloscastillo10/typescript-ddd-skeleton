@@ -28,6 +28,7 @@
     "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/no-useless-constructor": "off",
     "n/no-path-concat": "off"
   }
 }
