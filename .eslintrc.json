@@ -9,12 +9,18 @@
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      }
+    }
+  ],
   "plugins": ["@typescript-eslint", "import", "prettier"],
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
   "rules": {
     "prettier/prettier": ["error"],
