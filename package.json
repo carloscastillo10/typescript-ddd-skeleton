@@ -12,7 +12,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run test:features",
     "test:features": "npm run test:mooc:backend:features",
-    "test:mooc:backend:features": "NODE_ENV=test npx cucumber-js -p mooc_backend",
+    "test:mooc:backend:features": "NODE_ENV=test npx cucumber-js -p moocBackend",
     "build": "npm run build:clean && npm run build:tsc && npm run build:di",
     "build:tsc": "npx tsc -p tsconfig.prod.json && tsc-alias -p tsconfig.json",
     "build:di": "npx copy 'src/**/*.{json,yaml,html,png}' dist/src",
@@ -25,6 +25,7 @@
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^9.4.0",
+    "@types/bcrypt": "^5.0.0",
     "@types/compression": "^1.7.2",
     "@types/errorhandler": "^1.5.0",
     "@types/express": "^4.17.17",
@@ -48,6 +49,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "compression": "^1.7.4",
     "copy": "^0.3.2",
     "dotenv": "^16.3.1",

@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "documentation",
-    "skeleton"
+    "skeleton",
+    "users"
   ]
 }

@@ -7,6 +7,8 @@ import helmet from 'helmet'
 import * as http from 'http'
 import httpStatus from 'http-status'
 
+const { log } = console
+
 class Server {
   private readonly express: Express
   private readonly port: string
@@ -29,7 +31,7 @@ class Server {
     registerRoutes(router)
 
     router.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-      console.log(error)
+      log(error)
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send()
       next()
     })
@@ -39,8 +41,8 @@ class Server {
     await new Promise<void>(resolve => {
       const env = this.express.get('env') as string
       this.httpServer = this.express.listen(this.port, () => {
-        console.log(`  Mock Backend App is running at http://localhost:${this.port} in ${env} mode`)
-        console.log('  Press CTRL-C to stop\n')
+        log(`  Mock Backend App is running at http://localhost:${this.port} in ${env} mode`)
+        log('  Press CTRL-C to stop')
         resolve()
       })
     })
