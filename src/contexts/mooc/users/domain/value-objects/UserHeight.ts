@@ -1,4 +1,4 @@
-import { UserHeightLessThanAllowed } from '@contexts-mooc-users/domain/UserHeightLessThanAllowed'
+import { UserHeightLessThanAllowed } from '@contexts-mooc-users/domain/exceptions/UserHeightLessThanAllowed'
 import { IntValueObject } from '@contexts-shared-domain/value-object/IntValueObject'
 
 class UserHeight extends IntValueObject {

@@ -1,4 +1,4 @@
-import { UserAgeLessThanAllowed } from '@contexts-mooc-users/domain/UserAgeLessThanAllowed'
+import { UserAgeLessThanAllowed } from '@contexts-mooc-users/domain/exceptions/UserAgeLessThanAllowed'
 import { DateValueObject } from '@contexts-shared-domain/value-object/DateValueObject'
 
 class UserBirthdate extends DateValueObject {

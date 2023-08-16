@@ -16,7 +16,9 @@
     "skipLibCheck": true,
     "paths": {
       "@apps-mooc-backend/*": ["./src/apps/mooc/backend/*"],
+      "@contexts-mooc-shared/*": ["./src/contexts/mooc/shared/*"],
       "@contexts-mooc-users/*": ["./src/contexts/mooc/users/*"],
+      "@contexts-shared-infraestructure/*": ["./src/contexts/shared/infraestructure/*"],
       "@contexts-shared-domain/*": ["./src/contexts/shared/domain/*"]
     } 
   },

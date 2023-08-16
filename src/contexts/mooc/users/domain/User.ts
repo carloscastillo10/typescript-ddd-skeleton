@@ -1,13 +1,13 @@
-import { UserBirthdate } from '@contexts-mooc-users/domain/UserBirthdate'
-import { UserEmail } from '@contexts-mooc-users/domain/UserEmail'
-import { UserHeight } from '@contexts-mooc-users/domain/UserHeight'
-import { UserLastname } from '@contexts-mooc-users/domain/UserLastname'
-import { UserName } from '@contexts-mooc-users/domain/UserName'
-import { UserPassword } from '@contexts-mooc-users/domain/UserPassword'
-import { UserPhone } from '@contexts-mooc-users/domain/UserPhone'
-import { UserWeight } from '@contexts-mooc-users/domain/UserWeight'
+import { UserId } from '@contexts-mooc-shared/users/UserId'
+import { UserBirthdate } from '@contexts-mooc-users/domain/value-objects/UserBirthdate'
+import { UserEmail } from '@contexts-mooc-users/domain/value-objects/UserEmail'
+import { UserHeight } from '@contexts-mooc-users/domain/value-objects/UserHeight'
+import { UserLastname } from '@contexts-mooc-users/domain/value-objects/UserLastname'
+import { UserName } from '@contexts-mooc-users/domain/value-objects/UserName'
+import { UserPassword } from '@contexts-mooc-users/domain/value-objects/UserPassword'
+import { UserPhone } from '@contexts-mooc-users/domain/value-objects/UserPhone'
+import { UserWeight } from '@contexts-mooc-users/domain/value-objects/UserWeight'
 import { AggregateRoot } from '@contexts-shared-domain/AggregateRoot'
-import { UserId } from '@contexts-shared-domain/users/UserId'
 
 class User extends AggregateRoot {
   readonly id: UserId

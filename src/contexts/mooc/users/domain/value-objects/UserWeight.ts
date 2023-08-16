@@ -1,4 +1,4 @@
-import { UserWeightLessThanAllowed } from '@contexts-mooc-users/domain/UserWeightLessThanAllowed'
+import { UserWeightLessThanAllowed } from '@contexts-mooc-users/domain/exceptions/UserWeightLessThanAllowed'
 import { IntValueObject } from '@contexts-shared-domain/value-object/IntValueObject'
 
 class UserWeight extends IntValueObject {

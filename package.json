@@ -61,6 +61,7 @@
     "glob": "^10.3.3",
     "helmet": "^7.0.0",
     "http-status": "^1.6.2",
+    "mongoose": "^7.4.3",
     "node-dependency-injection": "^2.6.11",
     "ts-node": "^10.9.1"
   },
