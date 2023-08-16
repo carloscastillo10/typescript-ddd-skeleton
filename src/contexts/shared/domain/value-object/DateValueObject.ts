@@ -1,7 +1,7 @@
 import { InvalidArgumentError } from './InvalidArgumentError'
 
 abstract class DateValueObject {
-  private readonly value: string
+  readonly value: string
   private readonly dateRegex: RegExp
   private readonly currentYear: number
 
@@ -34,6 +34,10 @@ abstract class DateValueObject {
     if (year > this.currentYear) {
       throw new InvalidArgumentError(`The date <${date}> is an invalid date`)
     }
+  }
+
+  toString(): string {
+    return this.value
   }
 }
 

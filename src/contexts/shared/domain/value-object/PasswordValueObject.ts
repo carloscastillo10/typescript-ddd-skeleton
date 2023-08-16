@@ -1,7 +1,7 @@
 import { compare, hash } from 'bcrypt'
 
 abstract class PasswordValueObject {
-  private readonly value: string | Promise<string>
+  readonly value: string | Promise<string>
 
   constructor(value: string) {
     this.value = this.encrypt(value)

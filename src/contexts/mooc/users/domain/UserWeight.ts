@@ -9,7 +9,7 @@ class UserWeight extends IntValueObject {
 
   private ensureWeightIsAboveThanZeroCentimeters(weight: number): void {
     if (weight <= 0) {
-      throw new UserWeightLessThanAllowed(`The User Weight <${weight}> is less than 0 centimeters`)
+      throw new UserWeightLessThanAllowed(`The User Weight <${weight}> is less than 0 kg`)
     }
   }
 }

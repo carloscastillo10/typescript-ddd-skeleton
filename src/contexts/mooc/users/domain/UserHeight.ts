@@ -9,7 +9,7 @@ class UserHeight extends IntValueObject {
 
   private ensureHeightIsAboveThanZeroCentimeters(height: number): void {
     if (height <= 0) {
-      throw new UserHeightLessThanAllowed(`The User Height <${height}> is less than 0 centimeters`)
+      throw new UserHeightLessThanAllowed(`The User Height <${height}> is less than 0 cm`)
     }
   }
 }
