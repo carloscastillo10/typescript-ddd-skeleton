@@ -1,4 +1,4 @@
-import { EnvironmentArranger } from '@test-contexts/shared/infraestructure/arranger/EnvironmentArranger'
+import { EnvironmentArranger } from '@test-contexts-shared/infraestructure/arranger/EnvironmentArranger'
 import { Mongoose as MongoClient } from 'mongoose'
 
 class MongoDBEnvironmentArranger extends EnvironmentArranger {

@@ -20,7 +20,8 @@
       "@contexts-mooc-users/*": ["./src/contexts/mooc/users/*"],
       "@contexts-shared-infraestructure/*": ["./src/contexts/shared/infraestructure/*"],
       "@contexts-shared-domain/*": ["./src/contexts/shared/domain/*"],
-      "@test-contexts/shared/*": ["./tests/contexts/shared/*"]
+      "@test-contexts-mooc/*": ["./tests/contexts/mooc/*"],
+      "@test-contexts-shared/*": ["./tests/contexts/shared/*"]
     } 
   },
   "include": [
