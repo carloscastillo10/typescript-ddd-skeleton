@@ -1,7 +1,7 @@
 import { Controller } from '@apps-mooc-backend/controllers/Controller'
 import { CreateUserRequest } from '@contexts-mooc-users/application/CreateUserRequest'
 import { UserCreator } from '@contexts-mooc-users/application/UserCreator'
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import httpStatus from 'http-status'
 
 interface UserPostRequest extends Request {
@@ -15,10 +15,14 @@ class UserPostController implements Controller {
     this.userCreator = userCreator
   }
 
-  async run(req: UserPostRequest, res: Response): Promise<void> {
-    const data: CreateUserRequest = req.body
-    await this.userCreator.run(data)
-    res.status(httpStatus.CREATED).send()
+  async run(req: UserPostRequest, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const data: CreateUserRequest = req.body
+      await this.userCreator.run(data)
+      res.status(httpStatus.CREATED).send()
+    } catch (error) {
+      next(error)
+    }
   }
 }
 
