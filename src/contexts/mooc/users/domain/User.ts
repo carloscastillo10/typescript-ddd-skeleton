@@ -1,4 +1,4 @@
-import { UserId } from '@contexts-mooc-shared/users/UserId'
+import { UserId } from '@contexts-mooc-shared/domain/users/UserId'
 import { UserBirthdate } from '@contexts-mooc-users/domain/value-objects/UserBirthdate'
 import { UserEmail } from '@contexts-mooc-users/domain/value-objects/UserEmail'
 import { UserHeight } from '@contexts-mooc-users/domain/value-objects/UserHeight'

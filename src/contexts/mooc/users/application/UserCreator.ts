@@ -1,4 +1,4 @@
-import { UserId } from '@contexts-mooc-shared/users/UserId'
+import { UserId } from '@contexts-mooc-shared/domain/users/UserId'
 import { CreateUserRequest } from '@contexts-mooc-users/application/CreateUserRequest'
 import { User } from '@contexts-mooc-users/domain/User'
 import { UserRepository } from '@contexts-mooc-users/domain/UserRepository'
