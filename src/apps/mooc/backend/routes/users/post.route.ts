@@ -5,7 +5,7 @@ import { Request, Response, Router } from 'express'
 
 const register = (router: Router): void => {
   const controller: UserPostController = container.get('UserPostController')
-  router.post('/', async (req: Request, res: Response) => await controller.run(req, res))
+  router.post('/users', async (req: Request, res: Response) => await controller.run(req, res))
 }
 
 export { register }

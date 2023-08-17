@@ -8,7 +8,7 @@ services:
     factory:
       class: ../../../../../contexts/shared/infraestructure/persistence/mongodb/MongoDBClientFactory
       method: 'createClient'
-      arguments: ['mooc', '@MongoConfig']
+    arguments: ['mooc', '@MongoConfig']
   
   UserRepository:
     class: '../../../../../contexts/mooc/users/infraestructure/persistence/MongoDBUserRepository'

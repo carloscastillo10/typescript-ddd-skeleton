@@ -24,7 +24,7 @@ class MongoDBUserRepository extends MongoDBRepository<User> implements UserRepos
     //
   }
 
-  protected modelName(): string {
+  protected collectionName(): string {
     return 'users'
   }
 }
