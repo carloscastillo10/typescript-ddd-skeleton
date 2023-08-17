@@ -1,21 +1,21 @@
-import { compare, hash } from 'bcrypt'
+import { compareSync, hashSync } from 'bcrypt'
 
 abstract class PasswordValueObject {
-  readonly value: string | Promise<string>
+  readonly value: string
 
   constructor(value: string) {
     this.value = this.encrypt(value)
   }
 
-  private async encrypt(value: string): Promise<string> {
-    return await hash(value, 10)
+  private encrypt(value: string): string {
+    return hashSync(value, 10)
   }
 
-  async equalsTo(other: PasswordValueObject): Promise<boolean> {
-    return await compare(other.value as string, this.value as string)
+  equalsTo(other: PasswordValueObject): boolean {
+    return compareSync(other.value, this.value)
   }
 
-  toString(): string | Promise<string> {
+  toString(): string {
     return this.value
   }
 }

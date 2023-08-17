@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AggregateRoot } from '@contexts-shared-domain/AggregateRoot'
-import { Collection, MongoClient } from 'mongodb'
+import { Model, Mongoose as MongoClient, Schema } from 'mongoose'
 
 abstract class MongoDBRepository<T extends AggregateRoot> {
   private readonly _client: Promise<MongoClient>
@@ -8,20 +9,29 @@ abstract class MongoDBRepository<T extends AggregateRoot> {
     this._client = client
   }
 
-  protected abstract collectionName(): string
+  protected abstract modelName(): string
+  protected abstract schema(): Schema
 
   protected async client(): Promise<MongoClient> {
     return await this._client
   }
 
-  protected async collectiion(): Promise<Collection> {
-    return (await this.client()).db().collection(this.collectionName())
+  protected async model(): Promise<Model<any>> {
+    const client = await this.client()
+    const models = client.modelNames()
+    const modelName = this.modelName()
+
+    if (models.includes(modelName)) {
+      return client.models[modelName]
+    }
+
+    return client.connection.model(this.modelName(), this.schema())
   }
 
-  protected async persist(aggregateRoot: T): Promise<void> {
-    const collectiion = await this.collectiion()
-    const document = { ...aggregateRoot.toPrimitives(), id: undefined }
-    await collectiion.insertOne(document)
+  protected async persist(id: string, aggregateRoot: T): Promise<void> {
+    const model = await this.model()
+    const document = { ...aggregateRoot.toPrimitives(), _id: id, id: undefined }
+    await model.create(document)
   }
 }
 

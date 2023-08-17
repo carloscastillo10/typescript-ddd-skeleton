@@ -1,5 +1,5 @@
 import { MongoDBConfig } from '@contexts-shared-infraestructure/persistence/mongodb/MongoDBConfig'
-import { MongoClient } from 'mongodb'
+import { Mongoose as MongoClient } from 'mongoose'
 
 class MongoDBClientFactory {
   private static clients: Record<string, MongoClient> = {}
@@ -20,8 +20,8 @@ class MongoDBClientFactory {
   }
 
   private static async createAndConnectClient(config: MongoDBConfig): Promise<MongoClient> {
-    const client = new MongoClient(config.url, { ignoreUndefined: true })
-    await client.connect()
+    const client = new MongoClient()
+    await client.connect(config.url)
 
     return client
   }
