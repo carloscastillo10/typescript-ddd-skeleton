@@ -11,9 +11,9 @@ services:
     arguments: ['mooc', '@MongoConfig']
   
   UserRepository:
-    class: '../../../../../contexts/mooc/users/infraestructure/persistence/MongoDBUserRepository'
+    class: ../../../../../contexts/mooc/users/infraestructure/persistence/MongoDBUserRepository
     arguments: ['@ConnectionManager']
   
   UserCreator:
-    class: '../../../../../contexts/mooc/users/application/UserCreator'
+    class: ../../../../../contexts/mooc/users/application/UserCreator
     arguments: ['@UserRepository']

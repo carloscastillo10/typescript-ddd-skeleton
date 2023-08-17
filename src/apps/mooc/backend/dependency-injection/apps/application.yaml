@@ -1,8 +1,8 @@
 services:
   StatusGetController:
-    class: '../../controllers/StatusGetController'
+    class: ../../controllers/StatusGetController
     arguments: []
 
   UserPostController:
-    class: '../../controllers/UserPostController'
+    class: ../../controllers/UserPostController
     arguments: ['@UserCreator']

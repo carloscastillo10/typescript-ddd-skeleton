@@ -234,3 +234,6 @@ $RECYCLE.BIN/
 
 # Docker Volumes
 data/
+
+# Jest chache
+.tmp
