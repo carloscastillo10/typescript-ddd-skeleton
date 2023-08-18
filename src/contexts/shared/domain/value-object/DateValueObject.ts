@@ -1,4 +1,4 @@
-import { InvalidArgumentError } from './InvalidArgumentError'
+import { InvalidArgumentError } from '../exceptions/InvalidArgumentError'
 
 const DATE_REGEX = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
 const currentYear: number = new Date().getFullYear()

@@ -1,11 +1,11 @@
+import { boomErrorHandler, contextsErrorHandler, databaseErrorHandler, logErrorHandler, serverErrorHandler } from '@apps-mooc-backend/middlewares/error.handler'
 import { registerRoutes } from '@apps-mooc-backend/routes'
 import compress from 'compression'
 import errorHandler from 'errorhandler'
-import express, { Express, NextFunction, Request, Response } from 'express'
+import express, { Express } from 'express'
 import Router from 'express-promise-router'
 import helmet from 'helmet'
 import * as http from 'http'
-import httpStatus from 'http-status'
 
 const { log } = console
 
@@ -27,14 +27,15 @@ class Server {
 
     const router = Router()
     router.use(errorHandler())
+
     this.express.use('/api/v1', router)
     registerRoutes(router)
 
-    router.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-      log(error)
-      res.status(httpStatus.INTERNAL_SERVER_ERROR).send()
-      next()
-    })
+    this.express.use(logErrorHandler)
+    this.express.use(contextsErrorHandler)
+    this.express.use(boomErrorHandler)
+    this.express.use(databaseErrorHandler)
+    this.express.use(serverErrorHandler)
   }
 
   async listen(): Promise<void> {

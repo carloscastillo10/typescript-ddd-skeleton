@@ -1,5 +1,5 @@
 import { validate } from 'email-validator'
-import { InvalidArgumentError } from './InvalidArgumentError'
+import { InvalidArgumentError } from '../exceptions/InvalidArgumentError'
 
 abstract class EmailValueObject {
   readonly value: string

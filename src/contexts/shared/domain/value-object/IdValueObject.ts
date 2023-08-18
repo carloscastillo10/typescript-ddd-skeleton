@@ -1,4 +1,4 @@
-import { InvalidArgumentError } from '@contexts-shared-domain/value-object/InvalidArgumentError'
+import { InvalidArgumentError } from '@contexts-shared-domain/exceptions/InvalidArgumentError'
 import { ObjectId } from 'bson'
 abstract class IdValueObject {
   readonly value: string
