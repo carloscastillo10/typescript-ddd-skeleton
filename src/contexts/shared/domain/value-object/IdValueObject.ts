@@ -13,6 +13,10 @@ abstract class IdValueObject {
       throw new InvalidArgumentError(`The id <${id}> is not allowed`)
     }
   }
+
+  toString(): string {
+    return this.value
+  }
 }
 
 export { IdValueObject }

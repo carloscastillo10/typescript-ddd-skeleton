@@ -36,6 +36,10 @@ class UserRepositoryMook implements UserRepository {
   async delete(id: UserId): Promise<void> {
     //
   }
+
+  assertSaveHaveBeenCalledWith(expectedUser: User): void {
+    expect(this.saveMook).toHaveBeenCalledWith(expectedUser)
+  }
 }
 
 export { UserRepositoryMook }
