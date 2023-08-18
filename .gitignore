@@ -231,3 +231,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Docker Volumes
+data/
+
+# Jest chache
+.tmp

@@ -1,11 +1,13 @@
+import { boomErrorHandler, contextsErrorHandler, databaseErrorHandler, logErrorHandler, serverErrorHandler } from '@apps-mooc-backend/middlewares/error.handler'
 import { registerRoutes } from '@apps-mooc-backend/routes'
 import compress from 'compression'
 import errorHandler from 'errorhandler'
-import express, { Express, NextFunction, Request, Response } from 'express'
+import express, { Express } from 'express'
 import Router from 'express-promise-router'
 import helmet from 'helmet'
 import * as http from 'http'
-import httpStatus from 'http-status'
+
+const { log } = console
 
 class Server {
   private readonly express: Express
@@ -25,22 +27,23 @@ class Server {
 
     const router = Router()
     router.use(errorHandler())
+
     this.express.use('/api/v1', router)
     registerRoutes(router)
 
-    router.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-      console.log(error)
-      res.status(httpStatus.INTERNAL_SERVER_ERROR).send()
-      next()
-    })
+    this.express.use(logErrorHandler)
+    this.express.use(contextsErrorHandler)
+    this.express.use(boomErrorHandler)
+    this.express.use(databaseErrorHandler)
+    this.express.use(serverErrorHandler)
   }
 
   async listen(): Promise<void> {
     await new Promise<void>(resolve => {
       const env = this.express.get('env') as string
       this.httpServer = this.express.listen(this.port, () => {
-        console.log(`  Mock Backend App is running at http://localhost:${this.port} in ${env} mode`)
-        console.log('  Press CTRL-C to stop\n')
+        log(`  Mock Backend App is running at http://localhost:${this.port} in ${env} mode`)
+        log('  Press CTRL-C to stop')
         resolve()
       })
     })

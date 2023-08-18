@@ -1,0 +1,19 @@
+services:
+  MongoConfig:
+    factory:
+      class: ../../../../../contexts/mooc/shared/infraestructure/persistence/mongodb/MongoDBConfigFactory
+      method: 'createConfig'
+  
+  ConnectionManager:
+    factory:
+      class: ../../../../../contexts/shared/infraestructure/persistence/mongodb/MongoDBClientFactory
+      method: 'createClient'
+    arguments: ['mooc', '@MongoConfig']
+  
+  UserRepository:
+    class: ../../../../../contexts/mooc/users/infraestructure/persistence/MongoDBUserRepository
+    arguments: ['@ConnectionManager']
+  
+  UserCreator:
+    class: ../../../../../contexts/mooc/users/application/UserCreator
+    arguments: ['@UserRepository']
