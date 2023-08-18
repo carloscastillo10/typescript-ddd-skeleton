@@ -7,7 +7,7 @@ import { Schema } from 'mongoose'
 
 class MongoDBUserRepository extends MongoDBRepository<User> implements UserRepository {
   async save(user: User): Promise<void> {
-    return await this.persist(user.id.value, user)
+    return await this.persist(user.id.value, user.password.value, user)
   }
 
   async list(): Promise<void> {

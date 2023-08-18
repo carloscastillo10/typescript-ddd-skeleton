@@ -1,9 +1,5 @@
-import { PasswordValueObject } from '@contexts-shared-domain/value-object/PasswordValueObject'
+import { StringValueObject } from '@contexts-shared-domain/value-object/StringValueObject'
 
-class UserPassword extends PasswordValueObject {
-  constructor(password: string) {
-    super(password)
-  }
-}
+class UserPassword extends StringValueObject {}
 
 export { UserPassword }

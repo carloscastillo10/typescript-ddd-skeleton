@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AggregateRoot } from '@contexts-shared-domain/AggregateRoot'
+import { hash } from 'bcrypt'
 import { Model, Mongoose as MongoClient, Schema } from 'mongoose'
 
 abstract class MongoDBRepository<T extends AggregateRoot> {
@@ -28,9 +29,10 @@ abstract class MongoDBRepository<T extends AggregateRoot> {
     return client.connection.model(this.modelName(), this.schema())
   }
 
-  protected async persist(id: string, aggregateRoot: T): Promise<void> {
+  protected async persist(id: string, password: string, aggregateRoot: T): Promise<void> {
     const model = await this.model()
-    const document = { ...aggregateRoot.toPrimitives(), _id: id, id: undefined }
+    const encryptedPassword = await hash(password, 10)
+    const document = { ...aggregateRoot.toPrimitives(), _id: id, id: undefined, password: encryptedPassword }
     await model.create(document)
   }
 }

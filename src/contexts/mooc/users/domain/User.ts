@@ -14,7 +14,7 @@ class User extends AggregateRoot {
   readonly name: UserName
   readonly lastname: UserLastname
   readonly email: UserEmail
-  readonly password: UserPassword
+  password: UserPassword
   readonly phone: UserPhone
   readonly birthdate: UserBirthdate
   readonly height: UserHeight

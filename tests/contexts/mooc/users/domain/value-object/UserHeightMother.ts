@@ -7,7 +7,7 @@ class UserHeightMother {
   }
 
   static random(): UserHeight {
-    return this.create(FloatMother.random({ minNumber: 0.1, maxNumber: 2.0 }))
+    return this.create(FloatMother.random({ minNumber: 1, maxNumber: 2 }))
   }
 }
 

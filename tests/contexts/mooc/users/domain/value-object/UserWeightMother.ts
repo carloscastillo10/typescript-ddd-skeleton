@@ -7,7 +7,7 @@ class UserWeightMother {
   }
 
   static random(): UserWeight {
-    return this.create(FloatMother.random({ minNumber: 0.1, maxNumber: 400 }))
+    return this.create(FloatMother.random({ minNumber: 20, maxNumber: 200 }))
   }
 }
 
