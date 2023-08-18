@@ -19,6 +19,16 @@ Then('the response should be:', (expectedResponse: string) => {
   assert.deepStrictEqual(_response.body, JSON.parse(expectedResponse) as object)
 })
 
+Then('I send a POST request to {string} with body:', (route: string, body: string) => {
+  _request = request(application.httpServer)
+    .post(route)
+    .send(JSON.parse(body) as object)
+})
+
+Then('the response should be empty', () => {
+  assert.deepStrictEqual(_response.body, {})
+})
+
 BeforeAll(async () => {
   application = new MoocBackendApp()
   void application.start()

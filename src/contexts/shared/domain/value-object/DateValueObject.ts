@@ -1,14 +1,13 @@
 import { InvalidArgumentError } from './InvalidArgumentError'
 
+const DATE_REGEX = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
+const currentYear: number = new Date().getFullYear()
+
 abstract class DateValueObject {
-  private readonly value: string
-  private readonly dateRegex: RegExp
-  private readonly currentYear: number
+  readonly value: string
 
   constructor(value: string) {
     this.value = value
-    this.dateRegex = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
-    this.currentYear = new Date().getFullYear()
   }
 
   /**
@@ -20,7 +19,7 @@ abstract class DateValueObject {
    * @param date : string
    */
   private ensureIsValidDate(date: string): void {
-    if (!this.dateRegex.test(date)) {
+    if (!DATE_REGEX.test(date)) {
       throw new InvalidArgumentError(`The date <${date}> is an invalid date, the expected format is dd/mm/yyyy`)
     }
 
@@ -31,9 +30,13 @@ abstract class DateValueObject {
       throw new InvalidArgumentError(`The date <${date}> is an invalid date`)
     }
 
-    if (year > this.currentYear) {
+    if (year > currentYear) {
       throw new InvalidArgumentError(`The date <${date}> is an invalid date`)
     }
+  }
+
+  toString(): string {
+    return this.value
   }
 }
 

@@ -1,9 +1,5 @@
 import { StringValueObject } from '@contexts-shared-domain/value-object/StringValueObject'
 
-class UserName extends StringValueObject {
-  constructor(name: string) {
-    super(name)
-  }
-}
+class UserName extends StringValueObject {}
 
 export { UserName }

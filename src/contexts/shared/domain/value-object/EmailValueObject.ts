@@ -1,17 +1,16 @@
+import { validate } from 'email-validator'
 import { InvalidArgumentError } from './InvalidArgumentError'
 
 abstract class EmailValueObject {
   readonly value: string
-  private readonly emailRegex: RegExp
 
   constructor(value: string) {
-    this.emailRegex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
     this.ensureIsValidEmail(value)
     this.value = value
   }
 
   private ensureIsValidEmail(email: string): void {
-    if (!this.emailRegex.test(email)) {
+    if (!validate(email)) {
       throw new InvalidArgumentError(`The <${email}> is an invalid e-mail`)
     }
   }

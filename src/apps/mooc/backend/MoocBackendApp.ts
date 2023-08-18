@@ -1,11 +1,11 @@
 import { Server } from '@apps-mooc-backend/server'
-import 'dotenv/config'
+import { moocConfig } from '@contexts-mooc-shared/infraestructure/config'
 
 class MoocBackendApp {
   server?: Server
 
   async start(): Promise<void> {
-    const port = process.env.PORT ?? '5000'
+    const port = moocConfig.port
     this.server = new Server(port)
 
     await this.server.listen()

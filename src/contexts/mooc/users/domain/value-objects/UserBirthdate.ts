@@ -1,12 +1,11 @@
-import { UserAgeLessThanAllowed } from '@contexts-mooc-users/domain/UserAgeLessThanAllowed'
+import { UserAgeLessThanAllowed } from '@contexts-mooc-users/domain/exceptions/UserAgeLessThanAllowed'
 import { DateValueObject } from '@contexts-shared-domain/value-object/DateValueObject'
 
-class UserBirthdate extends DateValueObject {
-  private readonly currentDate: Date
+const currentDate: Date = new Date()
 
+class UserBirthdate extends DateValueObject {
   constructor(birthdate: string) {
     super(birthdate)
-    this.currentDate = new Date()
     this.ensureAgeIsAboveThanSevenYears(birthdate)
   }
 
@@ -19,9 +18,9 @@ class UserBirthdate extends DateValueObject {
 
   private calculateAge(birthdate: string): number {
     const [birthDay, birthMonth, birthYear] = birthdate.split('/').map(value => +value)
-    const day: number = this.currentDate.getDate()
-    let month: number = this.currentDate.getMonth() + 1
-    let year: number = this.currentDate.getFullYear()
+    const day: number = currentDate.getDate()
+    let month: number = currentDate.getMonth() + 1
+    let year: number = currentDate.getFullYear()
 
     if (birthDay > day) {
       month -= 1
